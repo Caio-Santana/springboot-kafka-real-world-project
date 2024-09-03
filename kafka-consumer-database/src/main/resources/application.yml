@@ -1,0 +1,27 @@
+spring:
+
+  kafka:
+    topic.name: wikimedia_recentchange
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: myGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/wikimedia
+    username: root
+    password: rootpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQLDialect
